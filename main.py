@@ -19,7 +19,7 @@ class Perceptron:
                 predicted = self.predict_for_train([x])[0]
                 if predicted == y:
                     continue
-                for i in range(len(X) - 1):
+                for i in range(len(x)):
                     self.weightsForTrain[i] += self.learningRate * (y - predicted) * x[i]
         self.threshold = self.weightsForTrain[-1]
         self.weights = self.weightsForTrain[:-1]
