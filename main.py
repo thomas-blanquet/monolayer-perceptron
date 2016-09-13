@@ -6,9 +6,11 @@ class Perceptron:
     def __init__(self, input):
         self.input = input
         self.learningRate = 0.1
-        self.weights = None
+        self.weightsForTrain = np.zeros(input + 1)  # + 1 for threshold calculation
+
+        # defined after train
         self.threshold = None
-        self.weightsForTrain = np.zeros(input + 1)
+        self.weights = None
 
     def train(self, X, Y):
         X = np.insert(X, X.shape[1], -1, axis=1)
