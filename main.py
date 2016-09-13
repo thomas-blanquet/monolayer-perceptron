@@ -38,19 +38,32 @@ class Perceptron:
     def predict(self, X):
         return [1 if np.dot(x, self.weights) >= self.threshold else 0 for x in X]
 
+
 train_X = np.array([
-    [0, 0],
-    [1, 0],
-    [0, 1],
-    [1, 1],
+    [1, 1, 1, 1, 1, 1, 0],
+    [0, 1, 1, 0, 0, 0, 0],
+    [1, 1, 0, 1, 1, 0, 1],
+    [1, 1, 1, 1, 0, 0, 1],
+    [0, 0, 1, 0, 0, 1, 1],
+    [1, 0, 1, 1, 0, 1, 1],
+    [0, 0, 1, 1, 1, 1, 1],
+    [1, 1, 1, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 0, 1, 1],
 ])
 train_Y = np.array([
     0,
+    1,
     0,
+    1,
+    0,
+    1,
+    0,
+    1,
     0,
     1,
 ])
 
-p = Perceptron(2)
+p = Perceptron(7)
 p.train(train_X, train_Y)
-print(p.predict(train_X))
+print(p.predict([[1, 1, 1, 0, 0, 0, 0]]))
